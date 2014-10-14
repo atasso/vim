@@ -42,6 +42,9 @@ let g:mapleader = ","
 imap jj <Esc>
 noremap ò <Char-0x60>
 
+"rimappo i tasti per scrollare in su e in giù
+map <Leader>j <C-d>
+map <Leader>k <C-u>
 
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
