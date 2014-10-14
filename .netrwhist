@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Applications/MacVim.app/Contents/Resources/vim/runtime/doc'
+let g:netrw_dirhist_2='/home/atasso/public/wow_test/public/sites/all/themes/wow_theme'
+let g:netrw_dirhist_3='/home/atasso/public/wow_test/public/sites/all/themes/wow_theme/sass'
+let g:netrw_dirhist_4='/home/atasso/public/wow_test/public/sites/all/themes/wow_theme'
+let g:netrw_dirhist_5='/home/atasso/public/wow_test/public/sites/all/themes/wow_theme/templates'
+let g:netrw_dirhist_6='/home/atasso/public/wow_test/public/sites/all/themes/wow_theme/sass'
+let g:netrw_dirhist_7='/home/atasso/public/wow_test/public/sites/all/themes/wow_theme/sass/layouts'
+let g:netrw_dirhist_8='/home/atasso/public/wow_test/public/sites/all/themes/wow_theme'

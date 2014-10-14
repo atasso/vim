@@ -4,6 +4,10 @@ set nocompatible
 
 set hidden
 
+if $TERM == "xterm-256color"
+  set t_Co=256
+endif
+
 "Visualizza i numeri di riga
 set number
 set ruler
