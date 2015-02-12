@@ -99,12 +99,14 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 28 - ((27 * winheight(0) + 23) / 47)
+13
+normal zo
+let s:l = 21 - ((20 * winheight(0) + 49) / 98)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-28
-normal! 010l
+21
+normal! 0
 lcd ~/public/wow_test/public/sites/all/themes/wow_theme
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

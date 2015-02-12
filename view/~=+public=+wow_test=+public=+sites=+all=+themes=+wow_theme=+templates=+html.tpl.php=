@@ -104,11 +104,11 @@ setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 23) / 47)
+let s:l = 43 - ((40 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+43
 normal! 0
 lcd ~/public/wow_test/public/sites/all/themes/wow_theme
 let &so = s:so_save | let &siso = s:siso_save

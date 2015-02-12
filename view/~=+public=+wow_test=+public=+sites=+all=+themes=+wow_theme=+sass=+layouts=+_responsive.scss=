@@ -83,9 +83,9 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!airline#statusline(4)
+setlocal statusline=%!airline#statusline(3)
 setlocal suffixesadd=.sass,.scss,.css
-setlocal swapfile
+setlocal noswapfile
 setlocal synmaxcol=3000
 if &syntax != 'scss'
 setlocal syntax=scss
@@ -100,12 +100,13 @@ setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 89 - ((41 * winheight(0) + 47) / 95)
+let s:l = 221 - ((8 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-89
-normal! 013l
+221
+normal! 0
+lcd ~/public/wow_test/public/sites/all/themes/wow_theme
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

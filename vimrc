@@ -4,9 +4,7 @@ set nocompatible
 
 set hidden
 
-if $TERM == "xterm-256color"
-  set t_Co=256
-endif
+set t_Co=256
 
 "Visualizza i numeri di riga
 set number
