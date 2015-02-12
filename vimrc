@@ -71,10 +71,10 @@ au BufWinEnter *.* silent loadview
 if has("gui_macvim")
     set fuoptions=maxvert,maxhorz
     au GUIEnter * set fullscreen
-    set gfn=Liberation_Mono_for_Powerline
-    let g:airline_powerline_fonts = 1
 endif
 
+    set gfn=Liberation_Mono_for_Powerline
+    let g:airline_powerline_fonts = 1
 
 set scrolloff=8
 

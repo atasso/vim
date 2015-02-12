@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='scp://linode/public/wow_test/public/sites/all/themes/wow_theme/sass/layouts/'
-let g:netrw_dirhist_2='scp://linode/public/wow_test/public/sites/all/themes/wow_theme/templates/'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/atasso'
+let g:netrw_dirhist_2='/Users/atasso/.vim'
+let g:netrw_dirhist_3='/Users/atasso'
+let g:netrw_dirhist_4='/Users/atasso/.vim'
+let g:netrw_dirhist_5='/Users/atasso'
+let g:netrw_dirhist_6='/Users/atasso/.vim'
+let g:netrw_dirhist_7='/Users/atasso'
