@@ -1,4 +1,4 @@
-color desert
+color molokai
 " Evita la compatibilità con il vecchio vim
 set nocompatible
 
@@ -100,6 +100,8 @@ inoremap ( ()<esc>i
 inoremap { {}<esc>i
 inoremap " ""<esc>i
 inoremap < <><esc>i
+inoremap [ []<esc>i
+inoremap ' ''<esc>i
 
 
 
@@ -127,5 +129,5 @@ noremap <silent> <S-tab> :wincmd W<cr>
 
 
 
-autocmd BufWritePost vimrc source $MYVIMRC
+autocmd BufWritePost ~/.vim/vimrc source $MYVIMRC
 
