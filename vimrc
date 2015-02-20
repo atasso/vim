@@ -91,10 +91,10 @@ call pathogen#helptags()
 filetype plugin indent on
 
 
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
+"apro l'albero nella root del progetto
+map <Leader>e :e.<cr>
+"cambio il modo per incollare nel terminale"
+map <Leader>p :set invpaste<cr>
 
 inoremap ( ()<esc>i
 inoremap { {}<esc>i
