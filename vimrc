@@ -28,11 +28,10 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-map <Leader><space> :nohl<CR>
 
-"Rimappo il leader sulla virgola
-let mapleader = ","
-let g:mapleader = ","
+"Rimappo il leader sullo spazio
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 
 
@@ -56,9 +55,9 @@ set laststatus=2
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
 
-" Map space to / (search) and c-space to ? (backgwards search)
-map <space> /
-map <c-space> ?
+"Mappo la riceca sulla virgola
+map , /
+map ,<Leader> :nohl<CR>
 
 "Nasconde la barra dei menu e gli scrollbar
 set guioptions=aAc
@@ -71,12 +70,12 @@ au BufWinEnter *.* silent loadview
 
 "Imposta la modalità a tutto schermo
 if has("gui_macvim")
-    set fuoptions=maxvert,maxhorz
-    au GUIEnter * set fullscreen
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
 endif
 
-    set gfn=Liberation_Mono_for_Powerline
-    let g:airline_powerline_fonts = 1
+  set gfn=Liberation_Mono_for_Powerline
+  let g:airline_powerline_fonts = 1
 
 set scrolloff=8
 
@@ -94,7 +93,8 @@ filetype plugin indent on
 "apro l'albero nella root del progetto
 map <Leader>e :e.<cr>
 "cambio il modo per incollare nel terminale"
-map <Leader>p :set invpaste<cr>
+map <silent> <Leader>p :set invpaste<cr>
+imap <silent> <C-v> <Esc>:set invpaste<cr>i
 
 inoremap ( ()<esc>i
 inoremap { {}<esc>i
@@ -122,6 +122,7 @@ noremap <silent> <C-tab> :tabnext <cr>
 noremap <silent> <C-S-tab> :tabprev <cr>
 "Sposta il cursore alla finestra precedente
 noremap <silent> <tab> :wincmd w<cr>
+
 
 
 "Sposta il cursore alla finestra successiva
