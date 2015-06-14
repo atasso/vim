@@ -1,7 +1,26 @@
 color molokai
 " Evita la compatibilità con il vecchio vim
 set nocompatible
+" Required Vundle setup
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#rc()
 
+Bundle 'gmarik/vundle'
+Bundle 'bling/vim-airline'
+Bundle 'wincent/command-t'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'ervandew/supertab'
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'bling/vim-bufferline'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/ZoomWin'
+
+
+filetype on
 set hidden
 
 set t_Co=256
@@ -82,9 +101,6 @@ set scrolloff=8
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"invoco pathogen per la gestione dei plugin
-call pathogen#infect()
-call pathogen#helptags()
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
