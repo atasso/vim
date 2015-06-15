@@ -1,4 +1,3 @@
-color molokai
 " Evita la compatibilità con il vecchio vim
 set nocompatible
 " Required Vundle setup
@@ -18,9 +17,17 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/ZoomWin'
+Bundle 'altercation/vim-colors-solarized'
 
 
 filetype on
+
+
+
+set background=dark
+colorscheme solarized
+
+
 set hidden
 
 set t_Co=256
