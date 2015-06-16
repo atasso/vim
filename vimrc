@@ -5,9 +5,8 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 Bundle 'bling/vim-airline'
-Bundle 'wincent/command-t'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'ervandew/supertab'
 Bundle 'tomtom/tlib_vim'
