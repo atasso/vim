@@ -18,6 +18,8 @@ Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc.vim'
 
 
 filetype on
@@ -84,6 +86,11 @@ map <Leader><Leader> :ZoomWin<CR>
 "Mappo la riceca sulla virgola
 map , /
 map ,<Leader> :nohl<CR>
+
+
+"Mappature per unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
 
 "Nasconde la barra dei menu e gli scrollbar
 set guioptions=aAc
