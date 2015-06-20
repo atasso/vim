@@ -61,7 +61,9 @@ set smartcase
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
 
-
+"Vimfiler è il filesistem di default
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_define_wrapper_commands = 1
 
 "Rimappo il tasto esc sulla jj
 imap jj <Esc>
