@@ -19,6 +19,7 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimfiler.vim'
 
 
 filetype on
