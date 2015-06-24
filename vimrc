@@ -122,11 +122,15 @@ set backspace=indent,eol,start
 filetype plugin indent on
 
 
-"apro l'albero nella root del progetto
-map <Leader>e :e.<cr>
+"apro l'albero nella root del progetto nella stessa finestra
+map <Leader>e :VimFiler -toggle<cr>
+map <Leader>t :VimFilerExplorer<cr>
+
+
+
 "cambio il modo per incollare nel terminale"
 map <silent> <Leader>p :set invpaste<cr>
-imap <silent> <C-v> <Esc>:set invpaste<cr>i
+inoremap <C-v> <Esc>:set invpaste<cr>i
 
 inoremap ( ()<esc>i
 inoremap { {}<esc>i
