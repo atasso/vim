@@ -1,5 +1,7 @@
 " Evita la compatibilità con il vecchio vim
 set nocompatible
+
+
 " Required Vundle setup
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
@@ -23,11 +25,10 @@ Bundle 'Shougo/neosnippet-snippets'
 
 filetype on
 
-
+" Fine delle impostazioni per Vundle
 
 set background=dark
 colorscheme solarized
-
 
 set hidden
 
@@ -56,6 +57,30 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Without setting this, ZoomWin restores windows in a way that causes
+" equalalways behavior to be triggered the next time CommandT is used.
+" This is likely a bludgeon to solve some other issue, but it works
+set noequalalways
+
+" Status bar
+set laststatus=2
+
+"Nasconde la barra dei menu e gli scrollbar
+set guioptions=aAc
+
+set gfn=Liberation_Mono_for_Powerline
+let g:airline_powerline_fonts = 1
+
+set scrolloff=8
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+
 "Rimappo il leader sullo spazio
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
@@ -63,6 +88,18 @@ let g:mapleader = "\<Space>"
 "Vimfiler è il filesistem di default
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_define_wrapper_commands = 1
+
+"Impostazioni per l'autocompletamento e gli snippets
+let g:neocomplete#enable_at_startup = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+imap <expr><CR> pumvisible() ?
+\(neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup())
+\: "\<CR>"
+imap <expr><TAB> neosnippet#jumpable() ?
+\ "\<Plug>(neosnippet_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+
 
 "Rimappo il tasto esc sulla jj
 imap jj <Esc>
@@ -72,15 +109,6 @@ noremap ò <Char-0x60>
 map <Leader>j <C-d>
 map <Leader>k <C-u>
 
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-
-" Status bar
-set laststatus=2
-
-
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
 
@@ -88,15 +116,29 @@ map <Leader><Leader> :ZoomWin<CR>
 map , /
 map ,<Leader> :nohl<CR>
 
-
 "Mappature per unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
 nnoremap <Leader>b :Unite -quick-match buffer <CR>
 
-"Nasconde la barra dei menu e gli scrollbar
-set guioptions=aAc
+"apro l'albero nella root del progetto nella stessa finestra
+map <Leader>e :VimFiler -toggle<cr>
+map <Leader>t :VimFilerExplorer<cr>
 
+"cambio il modo per incollare nel terminale"
+map <silent> <Leader>p :set invpaste<cr>
+
+inoremap ( ()<esc>i
+inoremap { {}<esc>i
+inoremap " ""<esc>i
+inoremap < <><esc>i
+inoremap [ []<esc>i
+inoremap ' ''<esc>i
+
+"Sposta il cursore alla finestra precedente
+noremap <silent> <tab> :wincmd w<cr>
+"Sposta il cursore alla finestra successiva
+noremap <silent> <S-tab> :wincmd W<cr>
 
 "Salva una vista ogni volta che chiudo un buffer per mantenere i fold
 au BufWinLeave *.* mkview
@@ -109,68 +151,7 @@ if has("gui_macvim")
   au GUIEnter * set fullscreen
 endif
 
-  set gfn=Liberation_Mono_for_Powerline
-  let g:airline_powerline_fonts = 1
-
-set scrolloff=8
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
-
-"apro l'albero nella root del progetto nella stessa finestra
-map <Leader>e :VimFiler -toggle<cr>
-map <Leader>t :VimFilerExplorer<cr>
-
-
-
-"cambio il modo per incollare nel terminale"
-map <silent> <Leader>p :set invpaste<cr>
-inoremap <C-v> <Esc>:set invpaste<cr>i
-
-inoremap ( ()<esc>i
-inoremap { {}<esc>i
-inoremap " ""<esc>i
-inoremap < <><esc>i
-inoremap [ []<esc>i
-inoremap ' ''<esc>i
-
-
-
-
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
-
-"Impostazioni per l'autocompletamento
-let g:neocomplete#enable_at_startup = 1
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-imap <expr><CR> pumvisible() ?
-\(neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup())
-\: "\<CR>"
-imap <expr><TAB> neosnippet#jumpable() ?
-\ "\<Plug>(neosnippet_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-"Sposta al tab successivo
-noremap <silent> <C-tab> :tabnext <cr>
-
-"Sposta al tab precedente
-noremap <silent> <C-S-tab> :tabprev <cr>
-"Sposta il cursore alla finestra precedente
-noremap <silent> <tab> :wincmd w<cr>
-
-
-
-"Sposta il cursore alla finestra successiva
-noremap <silent> <S-tab> :wincmd W<cr>
-
-
-
 autocmd BufWritePost ~/.vim/vimrc source $MYVIMRC
-
