@@ -120,6 +120,11 @@ map ,<Leader> :nohl<CR>
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
 nnoremap <Leader>b :Unite -quick-match buffer <CR>
+" Use ag for searching
+let g:unite_source_rec_async_command =
+  \ 'ag --follow --nocolor --nogroup --hidden -g ""'
+let g:ackprg = 'ag --nogroup --column'
+nnoremap <Leader>g :Unite grep:.<cr>
 
 "apro l'albero nella root del progetto nella stessa finestra
 map <Leader>e :VimFiler -toggle<cr>
