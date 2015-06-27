@@ -8,11 +8,8 @@ call vundle#rc()
 Bundle 'gmarik/Vundle.vim'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'ervandew/supertab'
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-"Bundle 'bling/vim-bufferline'
-"Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/ZoomWin'
@@ -95,6 +92,7 @@ map ,<Leader> :nohl<CR>
 "Mappature per unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
+nnoremap <Leader>b :Unite -quick-match buffer <CR>
 
 "Nasconde la barra dei menu e gli scrollbar
 set guioptions=aAc
