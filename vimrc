@@ -8,11 +8,11 @@ call vundle#rc()
 Bundle 'gmarik/Vundle.vim'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'bling/vim-bufferline'
-Bundle 'garbas/vim-snipmate'
+"Bundle 'bling/vim-bufferline'
+"Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/ZoomWin'
@@ -20,7 +20,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/vimfiler.vim'
-
+Bundle 'Shougo/neocomplete.vim'
+Bundle 'Shougo/neosnippet.vim'
+Bundle 'Shougo/neosnippet-snippets'
 
 filetype on
 
@@ -148,9 +150,15 @@ set directory=~/.vim/backup
 
 
 "Impostazioni per l'autocompletamento
-set wildmode=longest:full
-set wildmenu
-
+let g:neocomplete#enable_at_startup = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+imap <expr><CR> pumvisible() ?
+\(neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup())
+\: "\<CR>"
+imap <expr><TAB> neosnippet#jumpable() ?
+\ "\<Plug>(neosnippet_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
 "Sposta al tab successivo
 noremap <silent> <C-tab> :tabnext <cr>
 
