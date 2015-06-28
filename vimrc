@@ -118,12 +118,13 @@ map ,<Leader> :nohl<CR>
 
 "Mappature per unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#source('file_rec,file_rec/async,buffer,grep',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/'], '\|'))
 nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
 nnoremap <Leader>b :Unite -quick-match buffer <CR>
 " Use ag for searching
-let g:unite_source_rec_async_command =
-  \ 'ag --follow --nocolor --nogroup --hidden -g ""'
-let g:ackprg = 'ag --nogroup --column'
+let g:unite_source_grep_command = 'ack-grep'
+let g:unite_source_grep_default_opts = '-i --no-heading --no-color -H'
+let g:unite_source_grep_recursive_opt = ''
 nnoremap <Leader>g :Unite grep:.<cr>
 
 "apro l'albero nella root del progetto nella stessa finestra
