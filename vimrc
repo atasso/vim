@@ -111,26 +111,28 @@ map <Leader>j <C-d>
 map <Leader>k <C-u>
 
 " ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
+map <Leader>z :ZoomWin<CR>
 
 "Mappo la riceca sulla virgola
 map , /
 map ,<Leader> :nohl<CR>
 
 "Mappature per unite
+nnoremap [unite] <Nop>
+nmap ò [unite]
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom#source('file_rec,file_rec/async,buffer,grep',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/'], '\|'))
-nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
-nnoremap <Leader>b :Unite -quick-match buffer <CR>
+nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
+nnoremap [unite]b :Unite -quick-match buffer <CR>
 " Use ag for searching
 let g:unite_source_grep_command = 'ack'
 let g:unite_source_grep_default_opts = '-i --no-heading --no-color -H'
 let g:unite_source_grep_recursive_opt = ''
-nnoremap <Leader>g :Unite grep:.<cr>
+nnoremap [unite]g :Unite grep:.<cr>
 
 "apro l'albero nella root del progetto nella stessa finestra
 map <Leader>e :VimFiler -toggle<cr>
-map <Leader>t :VimFilerExplorer<cr>
+map <Leader>f :VimFilerExplorer<cr>
 
 "cambio il modo per incollare nel terminale"
 map <silent> <Leader>p :set invpaste<cr>
