@@ -7,21 +7,22 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Bundle 'gmarik/Vundle.vim'
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'honza/vim-snippets'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/vimfiler.vim'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'Shougo/neosnippet.vim'
-Bundle 'Shougo/neosnippet-snippets'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimfiler.vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
 
 filetype on
 
