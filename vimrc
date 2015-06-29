@@ -149,6 +149,11 @@ noremap <silent> <tab> :wincmd w<cr>
 "Sposta il cursore alla finestra successiva
 noremap <silent> <S-tab> :wincmd W<cr>
 
+nnoremap <CR> :
+
+nnoremap <Leader>tn :tabnew <cr>
+nnoremap <Leader>tc :tabclose <cr>
+
 "Salva una vista ogni volta che chiudo un buffer per mantenere i fold
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
