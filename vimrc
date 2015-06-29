@@ -71,6 +71,7 @@ set guioptions=aAc
 
 set gfn=Liberation_Mono_for_Powerline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 set scrolloff=8
 
@@ -167,5 +168,6 @@ endif
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
+
 
 autocmd BufWritePost ~/.vim/vimrc source $MYVIMRC
