@@ -108,15 +108,17 @@ imap jj <Esc>
 noremap ò <Char-0x60>
 
 "rimappo i tasti per scrollare in su e in giù
-map <Leader>j <C-d>
-map <Leader>k <C-u>
+nnoremap <Leader>j <C-d>
+nnoremap <Leader>k <C-u>
+nnoremap è <C-o>
+nnoremap é <C-i>
 
 " ZoomWin configuration
-map <Leader>z :ZoomWin<CR>
+nnoremap <Leader>z :ZoomWin<CR>
 
 "Mappo la riceca sulla virgola
-map , /
-map ,<Leader> :nohl<CR>
+nnoremap , /
+nnoremap ,<Leader> :nohl<CR>
 
 "Mappature per unite
 nnoremap [unite] <Nop>
@@ -132,11 +134,11 @@ let g:unite_source_grep_recursive_opt = ''
 nnoremap [unite]g :Unite grep:.<cr>
 
 "apro l'albero nella root del progetto nella stessa finestra
-map <Leader>e :VimFiler -toggle<cr>
-map <Leader>f :VimFilerExplorer<cr>
+nnoremap <Leader>e :VimFiler -toggle<cr>
+nnoremap <Leader>f :VimFilerExplorer<cr>
 
 "cambio il modo per incollare nel terminale"
-map <silent> <Leader>p :set invpaste<cr>
+nnoremap <silent> <Leader>p :set invpaste<cr>
 
 inoremap ( ()<esc>i
 inoremap { {}<esc>i
@@ -151,6 +153,7 @@ noremap <silent> <tab> :wincmd w<cr>
 noremap <silent> <S-tab> :wincmd W<cr>
 
 nnoremap <CR> :
+nnoremap à ;
 
 nnoremap <Leader>tn :tabnew <cr>
 nnoremap <Leader>tc :tabclose <cr>
