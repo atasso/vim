@@ -124,7 +124,7 @@ nnoremap ,<Leader> :nohl<CR>
 nnoremap [unite] <Nop>
 nmap ò [unite]
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('file_rec,file_rec/async,buffer,grep',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/'], '\|'))
+call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/'], '\|'))
 nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
 nnoremap [unite]b :Unite -quick-match buffer <CR>
 " Use ag for searching
@@ -132,6 +132,7 @@ let g:unite_source_grep_command = 'ack'
 let g:unite_source_grep_default_opts = '-i --no-heading --no-color -H'
 let g:unite_source_grep_recursive_opt = ''
 nnoremap [unite]g :Unite grep:.<cr>
+noremap <silent> [unite]s :Unite grep:.::<C-R><C-w><CR>
 
 "apro l'albero nella root del progetto nella stessa finestra
 nnoremap <Leader>e :VimFiler -toggle<cr>
