@@ -9,12 +9,10 @@ call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/unite.vim'
@@ -95,12 +93,13 @@ let g:vimfiler_define_wrapper_commands = 1
 let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
 imap <expr><CR> pumvisible() ?
-\(neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup())
-\: "\<CR>"
+      \(neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup())
+      \: "\<CR>"
 imap <expr><TAB> neosnippet#jumpable() ?
-\ "\<Plug>(neosnippet_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+      \ "\<Plug>(neosnippet_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 "Rimappo il tasto esc sulla jj
