@@ -92,7 +92,7 @@ let g:vimfiler_define_wrapper_commands = 1
 "Impostazioni per l'autocompletamento e gli snippets
 let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/neosnippet-snippets/neosnippets'
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 imap <expr><CR> pumvisible() ?
       \(neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup())
