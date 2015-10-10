@@ -35,6 +35,7 @@ set t_Co=256
 
 "Visualizza i numeri di riga
 set number
+set relativenumber
 set ruler
 set cursorline
 syntax on
