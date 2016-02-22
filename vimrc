@@ -9,6 +9,7 @@ call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
