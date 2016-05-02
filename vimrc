@@ -14,7 +14,9 @@ Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-eunuch'
 Plugin 'vim-scripts/ZoomWin'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
@@ -127,6 +129,7 @@ nmap ò [unite]
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/'], '\|'))
 nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
+nnoremap [unite]l :Unite -start-insert line<CR>
 nnoremap [unite]b :Unite -quick-match buffer <CR>
 
 " Use ag for searching
@@ -141,13 +144,6 @@ nnoremap <Leader>f :VimFilerExplorer<cr>
 
 "cambio il modo per incollare nel terminale"
 nnoremap <silent> <Leader>p :set invpaste<cr>
-
-inoremap ( ()<esc>i
-inoremap { {}<esc>i
-inoremap " ""<esc>i
-inoremap < <><esc>i
-inoremap [ []<esc>i
-inoremap ' ''<esc>i
 
 "Sposta il cursore alla finestra precedente
 noremap <silent> <tab> :wincmd w<cr>
