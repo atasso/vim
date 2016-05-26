@@ -24,6 +24,7 @@ Plugin 'Shougo/vimfiler.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neoyank.vim'
 
 filetype on
 
@@ -124,16 +125,27 @@ nnoremap ,<Leader> :nohl<CR>
 nnoremap [unite] <Nop>
 nmap ò [unite]
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/'], '\|'))
+call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/', 'node_modules/'], '\|'))
 nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
 nnoremap [unite]l :Unite -start-insert line<CR>
 nnoremap [unite]b :Unite -quick-match buffer <CR>
+nnoremap [unite]y :Unite history/yank <CR>
+
+
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+nnoremap <silent><buffer><expr> s unite#do_action('split')
+nnoremap <silent><buffer><expr> v unite#do_action('vsplit')
+imap <silent> <buffer> <Tab> <Plug>(unite_complete)
+endfunction
 
 " Use ag for searching
-let g:unite_source_grep_command = 'ack'
-let g:unite_source_grep_default_opts = '-i --no-heading --no-color -H'
-let g:unite_source_grep_recursive_opt = ''
-noremap <silent> [unite]s :Unite grep:.::<C-R><C-w><CR>
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+      \ '-i --vimgrep --hidden --ignore ' .
+      \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opts = ''
+noremap [unite]s :Unite -start-insert grep<CR>
 
 "apro l'albero nella root del progetto nella stessa finestra
 nnoremap <Leader>e :VimFiler -toggle<cr>
@@ -169,3 +181,5 @@ filetype plugin indent on
 
 
 autocmd BufWritePost ~/.vim/vimrc source $MYVIMRC
+
+
