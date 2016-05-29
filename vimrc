@@ -25,6 +25,8 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/neoyank.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'gcorne/vim-sass-lint'
 
 filetype on
 
@@ -146,6 +148,18 @@ let g:unite_source_grep_default_opts =
       \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opts = ''
 noremap [unite]s :Unite -start-insert grep<CR>
+
+" impostazioni per syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_scss_checkers = ['sass_lint']
+let g:syntastic_sass_checkers = ['sass_lint']
 
 "apro l'albero nella root del progetto nella stessa finestra
 nnoremap <Leader>e :VimFiler -toggle<cr>
