@@ -77,6 +77,7 @@ set guioptions=aAc
 set gfn=Liberation_Mono_for_Powerline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_inactive_collapse=1
 
 set scrolloff=8
 
@@ -166,7 +167,8 @@ nnoremap <Leader>e :VimFiler -toggle<cr>
 nnoremap <Leader>f :VimFilerExplorer<cr>
 
 "cambio il modo per incollare nel terminale"
-nnoremap <silent> <Leader>p :set invpaste<cr>
+nnoremap <silent> <Leader>p :set paste<cr>
+autocmd InsertLeave * set nopaste
 
 "Sposta il cursore alla finestra precedente
 noremap <silent> <tab> :wincmd w<cr>
@@ -192,7 +194,6 @@ endif
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
-
 
 autocmd BufWritePost ~/.vim/vimrc source $MYVIMRC
 
