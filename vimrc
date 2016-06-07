@@ -129,17 +129,21 @@ nnoremap [unite] <Nop>
 nmap ò [unite]
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/', 'node_modules/'], '\|'))
+call unite#custom#profile('source/buffer', 'context', {
+  \ 'no_split' : 1,
+  \ })
 nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
 nnoremap [unite]l :Unite -start-insert line<CR>
-nnoremap [unite]b :Unite -quick-match buffer <CR>
+nnoremap [unite]b :Unite buffer <CR>
 nnoremap [unite]y :Unite history/yank <CR>
-
 
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
 nnoremap <silent><buffer><expr> s unite#do_action('split')
 nnoremap <silent><buffer><expr> v unite#do_action('vsplit')
+nnoremap <silent> <buffer> <Tab> :wincmd w<cr>
 imap <silent> <buffer> <Tab> <Plug>(unite_complete)
+imap <silent> <buffer> <C-k> <Plug>(unite_choose_action)
 endfunction
 
 " Use ag for searching
