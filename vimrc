@@ -27,6 +27,7 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'gcorne/vim-sass-lint'
+Plugin 'evidens/vim-twig'
 
 filetype on
 
@@ -165,6 +166,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_scss_checkers = ['sass_lint']
 let g:syntastic_sass_checkers = ['sass_lint']
+let g:syntastic_sass_checkers = ['sass_lint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 "apro l'albero nella root del progetto nella stessa finestra
 nnoremap <Leader>e :VimFiler -toggle<cr>
