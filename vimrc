@@ -129,7 +129,7 @@ nnoremap ,<Leader> :nohl<CR>
 nnoremap [unite] <Nop>
 nmap ò [unite]
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/', 'node_modules/'], '\|'))
+call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/', 'node_modules/', 'core/'], '\|'))
 call unite#custom#profile('source/buffer', 'context', {
   \ 'no_split' : 1,
   \ })
@@ -187,11 +187,6 @@ nnoremap à ;
 
 nnoremap <Leader>tn :tabnew <cr>
 nnoremap <Leader>tc :tabclose <cr>
-
-"Salva una vista ogni volta che chiudo un buffer per mantenere i fold
-au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
-
 
 "Imposta la modalità a tutto schermo
 if has("gui_macvim")
