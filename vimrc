@@ -28,6 +28,8 @@ Plugin 'Shougo/neoyank.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'gcorne/vim-sass-lint'
 Plugin 'evidens/vim-twig'
+Plugin 'majutsushi/tagbar'
+Plugin 'joonty/vdebug'
 
 filetype on
 
@@ -107,6 +109,12 @@ imap <expr><TAB> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: pumvisible() ? "\<C-n>" : "\<TAB>"
 
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
 
 "Rimappo il tasto esc sulla jj
 imap jj <Esc>
@@ -129,7 +137,7 @@ nnoremap ,<Leader> :nohl<CR>
 nnoremap [unite] <Nop>
 nmap ò [unite]
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/', 'node_modules/', 'core/'], '\|'))
+call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/', 'node_modules/'], '\|'))
 call unite#custom#profile('source/buffer', 'context', {
   \ 'no_split' : 1,
   \ })
@@ -193,6 +201,24 @@ if has("gui_macvim")
   set fuoptions=maxvert,maxhorz
   au GUIEnter * set fullscreen
 endif
+
+
+" Vdebug
+let g:vdebug_keymap = {
+\    "run" : "<Leader>1",
+\    "run_to_cursor" : "<Down>",
+\    "step_over" : "<Up>",
+\    "step_into" : "<Left>",
+\    "step_out" : "<Right>",
+\    "close" : "q",
+\    "detach" : "x",
+\    "set_breakpoint" : "<Leader>b",
+\    "eval_visual" : "<Leader>e"
+\}
+
+let g:vdebug_options = {
+\    "break_on_open" : 0,
+\}
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
