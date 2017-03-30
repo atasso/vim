@@ -36,6 +36,7 @@ filetype on
 " Fine delle impostazioni per Vundle
 
 set background=dark
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 set hidden
@@ -49,7 +50,8 @@ set ruler
 set cursorline
 syntax on
 set showmode
-
+set fillchars=""
+hi EndOfBuffer ctermfg=235
 " Set encoding
 set encoding=utf-8
 
@@ -99,6 +101,22 @@ let g:mapleader = "\<Space>"
 "Vimfiler è il filesistem di default
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_define_wrapper_commands = 1
+let g:vimfiler_tree_leaf_icon = " "
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '✓'
+let g:vimfiler_readonly_file_icon = '✗'
+call vimfiler#custom#profile('default', 'context', {
+      \ 'safe' : 0,
+      \})
+augroup vfinit
+autocmd FileType vimfiler call s:vimfilerinit()
+augroup END
+  function! s:vimfilerinit()
+    set nonumber
+    set norelativenumber
+  endf
 
 "Impostazioni per l'autocompletamento e gli snippets
 let g:neocomplete#enable_at_startup = 1
@@ -145,6 +163,7 @@ nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
 nnoremap [unite]l :Unite -start-insert line<CR>
 nnoremap [unite]b :Unite buffer <CR>
 nnoremap [unite]y :Unite history/yank <CR>
+nnoremap [unite]r :UniteResume <CR>
 
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
