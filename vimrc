@@ -19,6 +19,7 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/denite.nvim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimfiler.vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -151,36 +152,20 @@ nnoremap <Leader>z :ZoomWin<CR>
 nnoremap , /
 nnoremap ,<Leader> :nohl<CR>
 
-"Mappature per unite
-nnoremap [unite] <Nop>
-nmap ò [unite]
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('file_rec,file_rec/async,buffer',  'ignore_pattern', join(['\.sass-cache/', 'sass-extensions/', 'node_modules/'], '\|'))
-call unite#custom#profile('source/buffer', 'context', {
-  \ 'no_split' : 1,
-  \ })
-nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
-nnoremap [unite]l :Unite -start-insert line<CR>
-nnoremap [unite]b :Unite buffer <CR>
-nnoremap [unite]y :Unite history/yank <CR>
-nnoremap [unite]r :UniteResume <CR>
-
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-nnoremap <silent><buffer><expr> s unite#do_action('split')
-nnoremap <silent><buffer><expr> v unite#do_action('vsplit')
-nnoremap <silent> <buffer> <Tab> :wincmd w<cr>
-imap <silent> <buffer> <Tab> <Plug>(unite_complete)
-imap <silent> <buffer> <C-k> <Plug>(unite_choose_action)
-endfunction
-
-" Use ag for searching
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-      \ '-i --vimgrep --hidden --ignore ' .
-      \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opts = ''
-noremap [unite]s :Unite -start-insert grep<CR>
+"Mappature per denite
+nnoremap [denite] <Nop>
+nmap ò [denite]
+call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('normal', 'd', '<denite:do_action:delete>', 'noremap')
+call denite#custom#source('line', 'matchers', ['matcher_fuzzy'])
+nnoremap [denite]f :Denite file_rec<CR>
+nnoremap [denite]l :Denite line<CR>
+nnoremap [denite]b :Denite buffer -mode=normal<CR>
+nnoremap [denite]y :Denite history/yank <CR>
+nnoremap [denite]r :Denite -resume <CR>
+noremap [denite]s :Denite grep<CR>
 
 " impostazioni per syntastic
 set statusline+=%#warningmsg#
