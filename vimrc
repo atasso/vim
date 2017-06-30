@@ -30,8 +30,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'gcorne/vim-sass-lint'
 Plugin 'evidens/vim-twig'
 Plugin 'majutsushi/tagbar'
-Plugin 'joonty/vdebug'
-
+Plugin 'Garethp/vdebug'
 filetype on
 
 " Fine delle impostazioni per Vundle
